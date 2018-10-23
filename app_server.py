@@ -54,7 +54,6 @@ class AppServer(object):
 				print("ZAP requires CurveZMQ (crypto) to be enabled. Exiting.")
 				sys.exit(1)
 			self.auth = IOLoopAuthenticator(self.ctx)
-			self.auth.deny(None)
 			print("ZAP enabled.\nAuthorizing clients in %s." % self.keymonkey.authorized_clients_dir)
 			self.auth.configure_curve(domain='*', location=self.keymonkey.authorized_clients_dir)
 			self.auth.start()
